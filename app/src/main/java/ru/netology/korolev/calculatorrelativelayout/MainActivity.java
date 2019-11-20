@@ -1,6 +1,6 @@
 package ru.netology.korolev.calculatorrelativelayout;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -58,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
         clickButton(btnMinus, getString(R.string.minus));
         clickButton(btnPlus, getString(R.string.plus));
         clickButton(btnEqual, getString(R.string.equal));
-
-
-
+        clickButton(btnDot, getString(R.string.dot));
 
     }
 
