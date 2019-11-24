@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         Button btnMinus = findViewById(R.id.btnMinus);
         Button btnPlus = findViewById(R.id.btnPlus);
         Button btnEqual = findViewById(R.id.btnEqual);
+        Button btnToEngine = findViewById(R.id.btnToEngine);
+        Button btnToOrdinary = findViewById(R.id.btnToOrdinary);
+        View layoutEngine = findViewById(R.id.layoutEngine);
+        final View layoutOrdinary = findViewById(R.id.layoutOrdinary);
 
         clickButton(btn1, getString(R.string.one));
         clickButton(btn2, getString(R.string.two));
@@ -60,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         clickButton(btnEqual, getString(R.string.equal));
         clickButton(btnDot, getString(R.string.dot));
 
+        changeCalc(btnToEngine, layoutOrdinary, layoutEngine);
+        changeCalc(btnToOrdinary, layoutEngine, layoutOrdinary);
+
     }
 
     private void clickButton(Button btn, final String digit) {
@@ -67,6 +74,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 txtResult.setText(digit);
+            }
+        });
+    }
+
+    private void changeCalc(Button btn, final View layout1, final View layout2) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout1.setVisibility(View.GONE);
+                layout2.setVisibility(View.VISIBLE);
             }
         });
     }

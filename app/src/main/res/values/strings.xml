@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CalculatorRelativeLayout</string>
+    <string name="app_name">CalculatorFrameLayout</string>
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
@@ -19,4 +19,17 @@
     <string name="minus">-</string>
     <string name="plus">+</string>
     <string name="equal">=</string>
+    <string name="rad">Rad</string>
+    <string name="to_engine">Переключить на инженерный</string>
+    <string name="to_ordinary">Переключить на обычный</string>
+    <string name="tan">tan</string>
+    <string name="cos">cos</string>
+    <string name="sin">sin</string>
+    <string name="sqrt">x^1/2</string>
+    <string name="square">x^2</string>
+    <string name="log">log</string>
+    <string name="exp">e^x</string>
+    <string name="dividex">1/x</string>
+    <string name="xy">x^y</string>
+    <string name="pi">Pi</string>
 </resources>
