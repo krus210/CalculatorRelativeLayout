@@ -32,4 +32,6 @@
     <string name="dividex">1/x</string>
     <string name="xy">x^y</string>
     <string name="pi">Pi</string>
+    <string name="my_string">MyString</string>
+    <string name="my_string_engine">MyStringEngine</string>
 </resources>

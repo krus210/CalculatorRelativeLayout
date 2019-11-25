@@ -1,5 +1,6 @@
 package ru.netology.korolev.calculatorrelativelayout;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResult;
+    TextView txtResultEngine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +19,30 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString(
+                getString(R.string.my_string),
+                txtResult.getText().toString());
+        savedInstanceState.putString(
+                getString(R.string.my_string_engine),
+                txtResultEngine.getText().toString());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        String myString = savedInstanceState.getString(getString(R.string.my_string));
+        txtResult.setText(myString);
+        String myStringEngine = savedInstanceState.getString(
+                getString(R.string.my_string_engine));
+        txtResultEngine.setText(myStringEngine);
+    }
+
     private void initView() {
         txtResult = findViewById(R.id.txtResult);
+        txtResultEngine = findViewById(R.id.txtResultEngine);
         Button btn1 = findViewById(R.id.btn1);
         Button btn2 = findViewById(R.id.btn2);
         Button btn3 = findViewById(R.id.btn3);
@@ -41,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnToEngine = findViewById(R.id.btnToEngine);
         Button btnToOrdinary = findViewById(R.id.btnToOrdinary);
         View layoutEngine = findViewById(R.id.layoutEngine);
-        final View layoutOrdinary = findViewById(R.id.layoutOrdinary);
+        View layoutOrdinary = findViewById(R.id.layoutOrdinary);
 
         clickButton(btn1, getString(R.string.one));
         clickButton(btn2, getString(R.string.two));
@@ -64,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         clickButton(btnEqual, getString(R.string.equal));
         clickButton(btnDot, getString(R.string.dot));
 
-        changeCalc(btnToEngine, layoutOrdinary, layoutEngine);
-        changeCalc(btnToOrdinary, layoutEngine, layoutOrdinary);
+        changeCalc(btnToEngine, layoutOrdinary, layoutEngine, txtResult, txtResultEngine);
+        changeCalc(btnToOrdinary, layoutEngine, layoutOrdinary, txtResultEngine, txtResult);
 
     }
 
@@ -78,12 +102,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void changeCalc(Button btn, final View layout1, final View layout2) {
+    private void changeCalc(Button btn,
+                            final View layout1,
+                            final View layout2,
+                            final TextView view1,
+                            final TextView view2) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 layout1.setVisibility(View.GONE);
                 layout2.setVisibility(View.VISIBLE);
+                String result = view1.getText().toString();
+                view2.setText(result);
             }
         });
     }

@@ -29,7 +29,7 @@
             android:textSize="@dimen/txt_result_size" />
 
         <LinearLayout
-            android:id="@+id/linear1"
+            android:id="@+id/linearFirstLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
             android:layout_below="@id/txtResult"
@@ -85,10 +85,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear2"
+            android:id="@+id/linearSecondLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            android:layout_below="@id/linear1"
+            android:layout_below="@id/linearFirstLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin">
 
@@ -141,10 +141,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear3"
+            android:id="@+id/linearThirdLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            android:layout_below="@id/linear2"
+            android:layout_below="@id/linearSecondLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin">
 
@@ -197,10 +197,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear4"
+            android:id="@+id/linearFourthLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            android:layout_below="@id/linear3"
+            android:layout_below="@id/linearThirdLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin">
 
@@ -253,10 +253,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear5"
+            android:id="@+id/linearFifthLine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/linear4"
+            android:layout_below="@id/linearFourthLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin"
             android:paddingBottom="@dimen/btn_margin">
@@ -328,7 +328,7 @@
             android:textSize="@dimen/txt_result_size" />
 
         <LinearLayout
-            android:id="@+id/linear1Engine"
+            android:id="@+id/linearEngineFirstLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
             android:layout_below="@id/txtResultEngine"
@@ -408,10 +408,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear2Engine"
+            android:id="@+id/linearEngineSecondLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            android:layout_below="@id/linear1Engine"
+            android:layout_below="@id/linearEngineFirstLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin">
 
@@ -488,10 +488,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear3Engine"
+            android:id="@+id/linearEngineThirdLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            android:layout_below="@id/linear2Engine"
+            android:layout_below="@id/linearEngineSecondLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin">
 
@@ -568,10 +568,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear4Engine"
+            android:id="@+id/linearEngineForthLine"
             android:layout_width="match_parent"
             android:layout_height="@dimen/layout_height"
-            android:layout_below="@id/linear3Engine"
+            android:layout_below="@id/linearEngineThirdLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin">
 
@@ -648,10 +648,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear5Engine"
+            android:id="@+id/linearEngineFifthLine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/linear4Engine"
+            android:layout_below="@id/linearEngineForthLine"
             android:paddingStart="@dimen/btn_margin"
             android:paddingEnd="@dimen/btn_margin"
             android:paddingBottom="@dimen/btn_margin">
