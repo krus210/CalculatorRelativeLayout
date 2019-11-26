@@ -8,4 +8,8 @@
     <dimen name="btn_margin">1dp</dimen>
     <dimen name="txt_result_height">130dp</dimen>
     <dimen name="layout_height">115dp</dimen>
+    <dimen name="txt_result_height_land">100dp</dimen>
+    <dimen name="layout_height_land">66dp</dimen>
+    <dimen name="layout_height_land_ordinary">52dp</dimen>
+    <dimen name="padding_zero_ordinary">80dp</dimen>
 </resources>

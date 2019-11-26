@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         String myStringEngine = savedInstanceState.getString(
                 getString(R.string.my_string_engine));
         txtResultEngine.setText(myStringEngine);
+        txtResultEngine.setText(myStringEngine);
     }
 
     private void initView() {
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn7 = findViewById(R.id.btn7);
         Button btn8 = findViewById(R.id.btn8);
         Button btn9 = findViewById(R.id.btn9);
+        Button btn9Engine = findViewById(R.id.btn9Engine);
         Button btn0 = findViewById(R.id.btn0);
         Button btnDot = findViewById(R.id.btnDot);
         Button btnC = findViewById(R.id.btnC);
@@ -87,6 +89,13 @@ public class MainActivity extends AppCompatActivity {
         clickButton(btnPlus, getString(R.string.plus));
         clickButton(btnEqual, getString(R.string.equal));
         clickButton(btnDot, getString(R.string.dot));
+        btn9Engine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtResultEngine.setText(getString(R.string.nine));
+            }
+        });
+
 
         changeCalc(btnToEngine, layoutOrdinary, layoutEngine, txtResult, txtResultEngine);
         changeCalc(btnToOrdinary, layoutEngine, layoutOrdinary, txtResultEngine, txtResult);
