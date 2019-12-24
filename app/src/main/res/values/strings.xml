@@ -39,4 +39,5 @@
     <string name="hint_path">Введите путь к файлу</string>
     <string name="don_write_text">Путь к файлу не введен</string>
     <string name="error_reading">Ошибка чтения файла</string>
+    <string name="error_file_not_found">Файл не найден</string>
 </resources>

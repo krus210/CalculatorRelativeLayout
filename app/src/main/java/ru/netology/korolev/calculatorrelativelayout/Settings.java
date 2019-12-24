@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -38,11 +39,9 @@ public class Settings extends AppCompatActivity {
         if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
 
             initViews();
-        }
-        else
-        {
+        } else {
             ActivityCompat.requestPermissions(this,
-                    new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     REQUEST_CODE_PERMISSION_READ_STORAGE);
         }
     }
@@ -77,12 +76,17 @@ public class Settings extends AppCompatActivity {
                         File file = new File(Environment.
                                 getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
                                 path);
-
-                        Bitmap b = BitmapFactory.decodeFile(file.getAbsolutePath());
-                        Intent intent = new Intent(Settings.this, MainActivity.class);
-                        intent.putExtra("BitmapImage", b);
-                        startActivity(intent);
-                        finish();
+                        if (file.exists()) {
+                            Bitmap b = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            Intent intent = new Intent(Settings.this, MainActivity.class);
+                            intent.putExtra("BitmapImage", b);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(Settings.this,
+                                    getString(R.string.error_file_not_found),
+                                    Toast.LENGTH_LONG).show();
+                        }
                     } else {
                         Toast.makeText(Settings.this,
                                 getString(R.string.error_reading),
