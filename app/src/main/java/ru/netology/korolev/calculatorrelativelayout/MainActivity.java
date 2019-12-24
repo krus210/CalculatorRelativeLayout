@@ -2,9 +2,14 @@ package ru.netology.korolev.calculatorrelativelayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
         Button btnToOrdinary = findViewById(R.id.btnToOrdinary);
         View layoutEngine = findViewById(R.id.layoutEngine);
         View layoutOrdinary = findViewById(R.id.layoutOrdinary);
+        Button btnSettingsOrdinary = findViewById(R.id.btnSettingsOrdinary);
+        Button btnSettingsEngine = findViewById(R.id.btnSettingsEngine);
+        ImageView imageBackground = findViewById(R.id.imageBackground);
 
         clickButton(btn1, getString(R.string.one));
         clickButton(btn2, getString(R.string.two));
@@ -100,6 +108,12 @@ public class MainActivity extends AppCompatActivity {
         changeCalc(btnToEngine, layoutOrdinary, layoutEngine, txtResult, txtResultEngine);
         changeCalc(btnToOrdinary, layoutEngine, layoutOrdinary, txtResultEngine, txtResult);
 
+        clickSettings(btnSettingsOrdinary);
+        clickSettings(btnSettingsEngine);
+
+        Intent intent = getIntent();
+        Bitmap bitmap = intent.getParcelableExtra("BitmapImage");
+        imageBackground.setImageBitmap(bitmap);
     }
 
     private void clickButton(Button btn, final String digit) {
@@ -123,6 +137,16 @@ public class MainActivity extends AppCompatActivity {
                 layout2.setVisibility(View.VISIBLE);
                 String result = view1.getText().toString();
                 view2.setText(result);
+            }
+        });
+    }
+
+    private void clickSettings(Button btn) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
             }
         });
     }

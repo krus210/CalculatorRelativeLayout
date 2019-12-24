@@ -4,11 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <RelativeLayout
         android:id="@+id/layoutOrdinary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
         android:visibility="gone">
 
         <Button
@@ -16,6 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/to_engine"/>
+
+        <Button
+            android:id="@+id/btnSettingsOrdinary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:layout_toEndOf="@id/btnToEngine"
+            android:layout_alignBottom="@id/btnToEngine"/>
 
         <TextView
             android:id="@+id/txtResult"
@@ -307,14 +319,21 @@
         android:id="@+id/layoutEngine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
         android:visibility="visible">
 
         <Button
             android:id="@+id/btnToOrdinary"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/to_ordinary"/>
+
+        <Button
+            android:id="@+id/btnSettingsEngine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:layout_toEndOf="@id/btnToOrdinary"
+            android:layout_alignBottom="@id/btnToOrdinary"/>
 
         <TextView
             android:id="@+id/txtResultEngine"
