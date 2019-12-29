@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,7 @@ public class Settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("log", "settings, onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
@@ -78,9 +80,9 @@ public class Settings extends AppCompatActivity {
                                 path);
                         if (file.exists()) {
                             Bitmap b = BitmapFactory.decodeFile(file.getAbsolutePath());
-                            Intent intent = new Intent(Settings.this, MainActivity.class);
+                            Intent intent = new Intent();
                             intent.putExtra("BitmapImage", b);
-                            startActivity(intent);
+                            setResult(RESULT_OK, intent);
                             finish();
                         } else {
                             Toast.makeText(Settings.this,

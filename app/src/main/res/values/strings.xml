@@ -40,4 +40,6 @@
     <string name="don_write_text">Путь к файлу не введен</string>
     <string name="error_reading">Ошибка чтения файла</string>
     <string name="error_file_not_found">Файл не найден</string>
+    <string name="error_return_intent_data">Ошибка возврата данных дочерней активности</string>
+    <string name="data_null">данные не переданы</string>
 </resources>

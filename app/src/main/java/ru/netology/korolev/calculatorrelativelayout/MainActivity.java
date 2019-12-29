@@ -7,18 +7,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResult;
     TextView txtResultEngine;
+    Bitmap bitmap;
+    ImageView imageBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("log", "main, onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         View layoutOrdinary = findViewById(R.id.layoutOrdinary);
         Button btnSettingsOrdinary = findViewById(R.id.btnSettingsOrdinary);
         Button btnSettingsEngine = findViewById(R.id.btnSettingsEngine);
-        ImageView imageBackground = findViewById(R.id.imageBackground);
+        imageBackground = findViewById(R.id.imageBackground);
 
         clickButton(btn1, getString(R.string.one));
         clickButton(btn2, getString(R.string.two));
@@ -110,10 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         clickSettings(btnSettingsOrdinary);
         clickSettings(btnSettingsEngine);
-
-        Intent intent = getIntent();
-        Bitmap bitmap = intent.getParcelableExtra("BitmapImage");
-        imageBackground.setImageBitmap(bitmap);
+        
     }
 
     private void clickButton(Button btn, final String digit) {
@@ -146,10 +148,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Settings.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Log.d("log", "main, onActivityResult");
+        if (resultCode == RESULT_OK) {
+            if (data != null) {
+                bitmap = data.getParcelableExtra("BitmapImage");
+                imageBackground.setImageBitmap(bitmap);
+            } else {
+                Toast.makeText(this,
+                        getString(R.string.data_null),
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this,
+                    getString(R.string.error_return_intent_data),
+                    Toast.LENGTH_SHORT).show();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
 }
 
